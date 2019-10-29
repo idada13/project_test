@@ -43,7 +43,7 @@ def reserve_list_difference(list_1, list_2):
 
     for i in range(len(list_1)):
         result.append(list_1[-1-i] + list_2[i])
-    
+
     return result
 
 def extract_keys_with_numbers(input_values):
@@ -103,4 +103,4 @@ def return_dict_with_matching_values(input_value):
                 result[value].append(key)
             else:
                 result[value] = [key]
-
+    return result        
