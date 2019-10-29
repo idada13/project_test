@@ -48,32 +48,24 @@ def reserve_list_difference(list_1, list_2):
 
 def turn_dict_to_list(input_value):
 
-    return [("AAA","Test1"),
-            ("AAB", "test_A"),
-            ("ABA", "test_B"),
-            ("ABB", "test_R"),
-            ("BAA", "Test2"),
-            ("BAB", "TEST_z"),
-            ("BBA", "TEST56")]
+    result = []
+
+    for key, value in input_value.items():
+        result.append((key, value))
+    return result
 
 def turn_list_into_dict(input_value):
     
-    return {
-            "AAA": "Test1",
-            "AAB": "test_A",
-            "ABA": "test_B",
-            "ABB": "test_R",
-            "BAA": "Test2",
-            "BAB": "TEST_z",
-            "BBA": "TEST56"
-        }
+    result = dict(input_value)
+    return result
 
 def return_dict_with_matching_values(input_value):
-    return {
-            "test_R": ["ABB", "CCA"],
-            "TEST_Z": ["BAB", "CCB", "ZZE"],
-            "TEST56": ["BBA", "CBC"],
-            "Fandom": ["CAC", "ZZB"],
-            "Kandom": ["AAA", "ZZD"]
-        }
+    result = dict()
+
+    for d in input_value:
+        for key, value in d.items():
+            if value in result:
+                result[value].append(key)
+            else:
+                result[value] = [key]
 
