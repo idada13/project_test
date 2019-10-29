@@ -43,5 +43,64 @@ def reserve_list_difference(list_1, list_2):
 
     for i in range(len(list_1)):
         result.append(list_1[-1-i] + list_2[i])
-    
+
     return result
+
+def extract_keys_with_numbers(input_values):
+  result = []
+
+    for key, value in input_value.items():
+        for char in value:
+            try:
+                int(char)
+                result.append(key)
+                break
+            except Exception:
+                continue
+    return result
+
+def merge_dicts(input_in):
+    result = {}
+
+    for input_value in values_in:
+        print("Current dict is {}".format(input_value))
+        for key, value in input_value.items():
+            print("Current dict key is {} and value is {}".format(key, value))
+            print("Results is currently {}".format(result))
+            if key in result:
+                print("Key {} is in the results".format(key))
+                if result[key] != input_value[key]:
+                    print("Key is on conflict as result value is {} and current dict value is {}".format(result[key], input_value[key]))
+                    result[key] = "conflict"
+            else:
+                print("Key is not results so add key {} with value {}".format(key, value))
+                result[key] = input_value[key]
+            print("++++++++++++++++++++++++++++++++++")
+        print()
+        print("--------------------------------------")
+
+    return result
+
+def turn_dict_to_list(input_value):
+
+    result = []
+
+    for key, value in input_value.items():
+        result.append((key, value))
+    return result
+
+def turn_list_into_dict(input_value):
+    
+    result = dict(input_value)
+    return result
+
+def return_dict_with_matching_values(input_value):
+    result = dict()
+
+    for d in input_value:
+        for key, value in d.items():
+            if value in result:
+                result[value].append(key)
+            else:
+                result[value] = [key]
+    return result        
